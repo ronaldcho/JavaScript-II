@@ -61,6 +61,9 @@ function NPC(options) {
   this.hp = options.hp;
   this.name = options.name;
 }
+
+NPC.prototype = Object.create(GameObject.prototype);
+
 NPC.prototype.takeDamage = function () {
   return (this.name, 'took damage.');
 };
@@ -71,12 +74,13 @@ function Humanoid(options) {
   this.weapons = options.weapons;
   this.language = options.language;
 }
+Humanoid.prototype = Object.create(NPC.propotype);
+
 Humanoid.prototype.greet = function () {
   return (this.name, 'offers a greeting in', this.language);
 };
 
-NPC.prototype = Object.create(GameObject.prototype);
-Humanoid.prototype = Object.create(NPC.propotype);
+
 /* eslint-disable no-undef */
 
 module.exports = {
